@@ -57,3 +57,26 @@ Visualization:
 - The constraints are visualized as lines on a 2D plot.
 - The feasible region, which is the area where all constraints are satisfied, is shaded.
 - The point corresponding to the optimal solution (minimum of the objective function) is plotted as a red dot.
+
+________
+
+`pr3` solves a Transportation Problem using Linear Programming (LP) with the PuLP library. The goal is to minimize the total transportation cost while satisfying supply and demand constraints.
+
+Problem Definition:
+
+A 4x4 matrix representing the transportation cost from each source (A1 to A4) to each destination (B1 to B4).
+- Supply: The amount of goods available at each source (A1 to A4).
+- Demand: The amount of goods required at each destination (B1 to B4).
+  
+Model Setup:
+- The LP problem is defined as a minimization problem (LpMinimize).
+- The decision variables are represented by route_vars[source, dest], which denotes the number of resources transported from source to dest. The variables are constrained to be non-negative integers.
+
+The objective function is the total cost, which is calculated as the sum of the product of the transportation quantity and its respective cost.
+
+Constraints:
+
+- Supply Constraints: The sum of the resources sent from each source to all destinations must equal the supply at that source.
+- Demand Constraints: The sum of the resources received at each destination from all sources must equal the demand at that destination.
+
+The model is solved using model.solve(). The total cost is printed, followed by the quantity of resources transported from each source to each destination, along with the corresponding trip cost.
