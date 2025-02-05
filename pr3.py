@@ -29,4 +29,4 @@ for source, dest in routes:
         num_resources = route_vars[source, dest].varValue
         cost_per_resource = costs[sources.index(source)][destinations.index(dest)]
         trip_cost = num_resources * cost_per_resource
-        print(f"Quantity of resources transported from {source} to {dest}: {num_resources}, Загальна вартість поїздки: {trip_cost}")
+        print(f"Quantity of resources transported from {source} to {dest}: {num_resources}, Total cost of the trip: {trip_cost}")
